@@ -1,8 +1,3 @@
 export default function Projects() {
-  return (
-    <div>
-      <h1>Projects</h1>
-      <p>Test</p>
-    </div>
-  )
+  return <h1 className="text-3xl font-bold">Projects</h1>;
 }
