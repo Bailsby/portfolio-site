@@ -1,3 +1,15 @@
+import Hero from "../components/Hero";
+import Intro from "../components/Intro";
+import TechStack from "../components/TechStack";
+import FeaturedProjects from "../components/FeaturedProjects";
+
 export default function Home() {
-  return <h1 className="text-3xl font-bold">Home</h1>;
+  return (
+    <div className="space-y-20">
+      <Hero />
+      <Intro />
+      <TechStack />
+      <FeaturedProjects />
+    </div>
+  );
 }
