@@ -1,20 +1,55 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-  return (
-    <nav className="flex items-center justify-between p-6 border-b border-gray-800">
-      <div className="font-bold text-lg">Jake Bailey</div>
+  const location = useLocation();
 
+  const linkClass = (path: string) =>
+    `transition-colors ${
+      location.pathname === path
+        ? "text-white"
+        : "text-gray-400 hover:text-white"
+    }`;
+
+  return (
+    <nav className="flex items-center justify-between px-6 py-6 border-b border-gray-900">
+      
+      {/* Logo / Brand */}
+      <Link
+        to="/"
+        className="flex items-center gap-2 hover:opacity-80 transition"
+      >
+        {/* simple home icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-5 h-5 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 10.5L12 3l9 7.5V21a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1V10.5z"
+          />
+        </svg>
+
+        <span className="font-semibold text-lg tracking-tight">
+          Jake Bailey
+        </span>
+      </Link>
+
+      {/* Nav links */}
       <div className="flex gap-6 text-sm">
-        <Link className="hover:text-gray-300" to="/">
+        <Link className={linkClass("/")} to="/">
           Home
         </Link>
 
-        <Link className="hover:text-gray-300" to="/projects">
+        <Link className={linkClass("/projects")} to="/projects">
           Projects
         </Link>
 
-        <Link className="hover:text-gray-300" to="/contact">
+        <Link className={linkClass("/contact")} to="/contact">
           Contact
         </Link>
       </div>
