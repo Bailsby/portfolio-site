@@ -26,7 +26,9 @@ export default function TechStack() {
             <span
               key={name}
               className="flex items-center gap-2 px-4 py-1.5 border border-gray-800 rounded-full text-sm text-gray-300 
+              bg-black/50 backdrop-blur-sm
               hover:border-gray-500 hover:text-white 
+              hover:bg-black/70
               hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] 
               hover:scale-[1.05] 
               transition-all duration-300"

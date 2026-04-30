@@ -11,13 +11,11 @@ export default function Navbar() {
     }`
 
   return (
-    <nav className="relative z-50 flex items-center justify-between p-6 border-b border-gray-900">
-      {/* Logo / Brand */}
+<nav className="sticky top-0 z-50 flex items-center justify-between p-6 border-b border-gray-900 bg-[#050505]/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.45)]">      {/* Logo / Brand */}
       <Link
         to="/"
         className="flex items-center gap-2 hover:opacity-80 transition"
       >
-        {/* simple home icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5 text-white"

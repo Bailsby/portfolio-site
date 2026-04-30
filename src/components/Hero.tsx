@@ -13,14 +13,14 @@ export default function Hero() {
       <div className="flex justify-center gap-4 pt-6">
         <a
           href="/projects"
-          className="px-6 py-2 rounded-md bg-white text-black hover:bg-gray-200 hover:scale-[1.02] transition-all duration-300"
+          className="px-6 py-2 rounded-md bg-white text-black hover:bg-gray-200 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm"
         >
           View Projects
         </a>
 
         <a
           href="/contact"
-          className="px-6 py-2 rounded-md border border-gray-800 hover:border-gray-300 hover:scale-[1.02] transition-all duration-300"
+          className="px-6 py-2 rounded-md border border-gray-800 bg-black/40 backdrop-blur-sm hover:border-gray-300 hover:bg-black/60 hover:scale-[1.02] transition-all duration-300"
         >
           Contact Me
         </a>
