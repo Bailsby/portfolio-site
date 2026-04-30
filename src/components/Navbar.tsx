@@ -11,7 +11,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="flex items-center justify-between px-6 py-6 border-b border-gray-900">
+    <nav className="relative z-50 flex items-center justify-between p-6 border-b border-gray-900">
       
       {/* Logo / Brand */}
       <Link
