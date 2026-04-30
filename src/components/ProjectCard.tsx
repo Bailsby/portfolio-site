@@ -1,14 +1,14 @@
-import { FaGithub } from "react-icons/fa";
-import { techIcons } from "../data/techIcons";
+import { FaGithub } from 'react-icons/fa'
+import { techIcons } from '../data/techIcons'
 
 type Project = {
-  title: string;
-  problem: string;
-  architecture: string;
-  techStack: string[];
-  github: string;
-  live?: string;
-};
+  title: string
+  problem: string
+  architecture: string
+  techStack: string[]
+  github: string
+  live?: string
+}
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -22,9 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-1">
             Problem
           </h4>
-          <p className="text-gray-400 leading-relaxed">
-            {project.problem}
-          </p>
+          <p className="text-gray-400 leading-relaxed">{project.problem}</p>
         </div>
 
         <div>
@@ -38,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
         <div className="flex flex-wrap gap-2 pt-2">
           {project.techStack.map((tech) => {
-            const Icon = techIcons[tech];
+            const Icon = techIcons[tech]
 
             return (
               <span
@@ -48,13 +46,12 @@ export default function ProjectCard({ project }: { project: Project }) {
                 {Icon && <Icon size={14} />}
                 {tech}
               </span>
-            );
+            )
           })}
         </div>
       </div>
 
       <div className="mt-auto flex justify-between pt-4 text-sm">
-
         <a
           href={project.github}
           target="_blank"
@@ -77,5 +74,5 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
     </div>
-  );
+  )
 }

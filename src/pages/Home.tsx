@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 
-import Hero from "../components/Hero";
-import Intro from "../components/Intro";
-import TechStack from "../components/TechStack";
-import FeaturedProjects from "../components/FeaturedProjects";
-import Reveal from "../components/Reveal";
+import Hero from '../components/Hero'
+import Intro from '../components/Intro'
+import TechStack from '../components/TechStack'
+import FeaturedProjects from '../components/FeaturedProjects'
+import Reveal from '../components/Reveal'
 
 export default function Home() {
   return (
@@ -30,5 +30,5 @@ export default function Home() {
         <FeaturedProjects />
       </Reveal>
     </motion.div>
-  );
+  )
 }

@@ -1,16 +1,13 @@
 export default function Hero() {
   return (
     <section className="text-center space-y-6">
-      <h1 className="text-6xl font-bold tracking-tight">
-        Jake Bailey
-      </h1>
+      <h1 className="text-6xl font-bold tracking-tight">Jake Bailey</h1>
 
-      <p className="text-2xl text-gray-300">
-        Software Engineer
-      </p>
+      <p className="text-2xl text-gray-300">Software Engineer</p>
 
       <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-        Full-stack developer specialising in React, TypeScript, Node.js and cloud infrastructure.
+        Full-stack developer specialising in React, TypeScript, Node.js and
+        cloud infrastructure.
       </p>
 
       <div className="flex justify-center gap-4 pt-6">
@@ -29,5 +26,5 @@ export default function Hero() {
         </a>
       </div>
     </section>
-  );
+  )
 }

@@ -1,17 +1,13 @@
-import { copyToClipboard } from "../utils/copyToClipboard";
+import { copyToClipboard } from '../utils/copyToClipboard'
 
 type ContactItem = {
-  label: string;
-  value: string;
-  href?: string;
-  copyable?: boolean;
-};
+  label: string
+  value: string
+  href?: string
+  copyable?: boolean
+}
 
-export default function ContactCard({
-  item,
-}: {
-  item: ContactItem;
-}) {
+export default function ContactCard({ item }: { item: ContactItem }) {
   const content = (
     <div
       onClick={() => item.copyable && copyToClipboard(item.value)}
@@ -21,19 +17,17 @@ export default function ContactCard({
         {item.label}
       </span>
 
-      <span className="text-white">
-        {item.value}
-      </span>
+      <span className="text-white">{item.value}</span>
     </div>
-  );
+  )
 
   if (item.href) {
     return (
       <a href={item.href} target="_blank">
         {content}
       </a>
-    );
+    )
   }
 
-  return content;
+  return content
 }

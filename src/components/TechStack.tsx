@@ -1,18 +1,18 @@
-import { techIcons } from "../data/techIcons";
+import { techIcons } from '../data/techIcons'
 
 export default function TechStack() {
   const tech = [
-    "React",
-    "TypeScript",
-    "Node.js",
-    "PHP",
-    "Laravel",
-    "Docker",
-    "AWS",
-    "Terraform",
-    "Git",
-    "SQL",
-  ];
+    'React',
+    'TypeScript',
+    'Node.js',
+    'PHP',
+    'Laravel',
+    'Docker',
+    'AWS',
+    'Terraform',
+    'Git',
+    'SQL',
+  ]
 
   return (
     <section className="text-center space-y-6">
@@ -20,7 +20,7 @@ export default function TechStack() {
 
       <div className="flex flex-wrap justify-center gap-3">
         {tech.map((name) => {
-          const Icon = techIcons[name];
+          const Icon = techIcons[name]
 
           return (
             <span
@@ -34,9 +34,9 @@ export default function TechStack() {
               {Icon && <Icon size={16} />}
               {name}
             </span>
-          );
+          )
         })}
       </div>
     </section>
-  );
+  )
 }

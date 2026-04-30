@@ -1,18 +1,17 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Navbar() {
-  const location = useLocation();
+  const location = useLocation()
 
   const linkClass = (path: string) =>
     `transition-colors ${
       location.pathname === path
-        ? "text-white"
-        : "text-gray-400 hover:text-white"
-    }`;
+        ? 'text-white'
+        : 'text-gray-400 hover:text-white'
+    }`
 
   return (
     <nav className="relative z-50 flex items-center justify-between p-6 border-b border-gray-900">
-      
       {/* Logo / Brand */}
       <Link
         to="/"
@@ -41,18 +40,18 @@ export default function Navbar() {
 
       {/* Nav links */}
       <div className="flex gap-6 text-sm">
-        <Link className={linkClass("/")} to="/">
+        <Link className={linkClass('/')} to="/">
           Home
         </Link>
 
-        <Link className={linkClass("/projects")} to="/projects">
+        <Link className={linkClass('/projects')} to="/projects">
           Projects
         </Link>
 
-        <Link className={linkClass("/contact")} to="/contact">
+        <Link className={linkClass('/contact')} to="/contact">
           Contact
         </Link>
       </div>
     </nav>
-  );
+  )
 }

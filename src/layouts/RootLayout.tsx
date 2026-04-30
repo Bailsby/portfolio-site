@@ -1,11 +1,10 @@
-import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import MatrixBackground from "../components/MatrixBackground";
+import { Outlet } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import MatrixBackground from '../components/MatrixBackground'
 
 export default function RootLayout() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-
       {/* Matrix background */}
       <MatrixBackground />
 
@@ -21,5 +20,5 @@ export default function RootLayout() {
         <Outlet />
       </main>
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import ProjectCard from "./ProjectCard";
-import { projects } from "../data/projects";
+import ProjectCard from './ProjectCard'
+import { projects } from '../data/projects'
 
 export default function FeaturedProjects() {
   return (
@@ -14,5 +14,5 @@ export default function FeaturedProjects() {
         ))}
       </div>
     </section>
-  );
+  )
 }

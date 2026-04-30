@@ -8,15 +8,15 @@ import {
   SiTerraform,
   SiGit,
   SiMysql,
-  SiPostgresql
-} from "react-icons/si";
+  SiPostgresql,
+} from 'react-icons/si'
 
-import { FaAws } from "react-icons/fa";
+import { FaAws } from 'react-icons/fa'
 
 export const techIcons: Record<string, any> = {
   React: SiReact,
   TypeScript: SiTypescript,
-  "Node.js": SiNodedotjs,
+  'Node.js': SiNodedotjs,
   PHP: SiPhp,
   Laravel: SiLaravel,
   Docker: SiDocker,
@@ -25,4 +25,4 @@ export const techIcons: Record<string, any> = {
   Git: SiGit,
   SQL: SiMysql,
   PostgreSQL: SiPostgresql,
-};
+}
