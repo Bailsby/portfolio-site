@@ -1,73 +1,152 @@
-# React + TypeScript + Vite
+# Jake Bailey — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern full-stack developer portfolio built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+Designed with a premium cyberpunk / Matrix-inspired UI featuring animated backgrounds, smooth reveal animations, glassmorphism styling, and responsive layouts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### UI / Styling
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React Icons
+- Custom Matrix Canvas Background
+- Responsive Design
+- Glassmorphism Effects
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Tooling
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- ESLint
+- Docker
+- GitHub
+
+---
+
+## Features
+
+- Animated Matrix-style background
+- Scroll reveal animations
+- Responsive mobile-first design
+- Dynamic project cards
+- Tech stack icons
+- Contact page with CV download
+- GitHub + LinkedIn integration
+- Smooth hover interactions
+- Modern typography system
+
+---
+
+## Local Development
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Bailsby/portfolio-site.git
+cd portfolio-site
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Start development server
+
+```bash
+npm run dev
+```
+
+Application runs on:
+
+```txt
+http://localhost:5173
+```
+
+---
+
+## Docker Development
+
+### Start development environment
+
+```bash
+docker compose up --build
+```
+
+Application runs on:
+
+```txt
+http://localhost:5173
+```
+
+### Stop containers
+
+```bash
+docker compose down
+```
+
+---
+
+## Available Scripts
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+### Production build
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+### Run linting
+
+```bash
+npm run lint
+```
+
+```bash
+npm run format
+```
+
+---
+
+## Project Structure
+
+```txt
+src/
+├── components/
+├── layouts/
+├── pages/
+├── data/
+├── routes/
+└── utils/
+```
+
+---
+
+## Author
+
+Jake Bailey
+
+- GitHub: https://github.com/Bailsby
+- LinkedIn: https://www.linkedin.com/in/jake-bailey-dev
+
+---
