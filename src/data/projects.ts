@@ -15,13 +15,13 @@ export const projects = [
     ],
     github: 'https://github.com/Bailsby/api-monitoring-saas',
   },
-  {
-    title: 'Travel Planner',
-    problem:
-      'Users struggle to organise multi-country trips, budgets, and itineraries in one place.',
-    architecture:
-      'Full-stack app with REST API backend, React frontend dashboard, and persistent storage.',
-    techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-    github: 'https://github.com/Bailsby/travel-planner',
-  },
+  // {
+  //   title: 'Travel Planner',
+  //   problem:
+  //     'Users struggle to organise multi-country trips, budgets, and itineraries in one place.',
+  //   architecture:
+  //     'Full-stack app with REST API backend, React frontend dashboard, and persistent storage.',
+  //   techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+  //   github: 'https://github.com/Bailsby/travel-planner',
+  // },
 ]

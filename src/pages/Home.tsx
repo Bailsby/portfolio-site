@@ -22,9 +22,36 @@ export default function Home() {
         <Intro />
       </Reveal>
 
-      <Reveal>
-        <TechStack />
-      </Reveal>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <TechStack
+          title="Professional Tech Stack"
+          tech={[
+            'React',
+            'TypeScript',
+            'Node.js',
+            'PHP',
+            'Laravel',
+            'AWS',
+            'Terraform',
+            'Docker',
+            'SQL',
+            'Git',
+            'Tailwind',
+            'Bootstrap',
+          ]}
+        />
+
+        <TechStack
+          title="Personal Tech Stack"
+          tech={[
+            'Next.js',
+            'Fastify',
+            'PostgreSQL',
+            'Prisma',
+            'Vercel',
+          ]}
+        />
+      </div>
 
       <Reveal>
         <FeaturedProjects />
