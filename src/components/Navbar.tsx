@@ -11,7 +11,9 @@ export default function Navbar() {
     }`
 
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between p-6 border-b border-gray-900 bg-[#050505]/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.45)]">      {/* Logo / Brand */}
+    <nav className="sticky top-0 z-50 flex items-center justify-between p-6 border-b border-gray-900 bg-[#050505]/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
+      {' '}
+      {/* Logo / Brand */}
       <Link
         to="/"
         className="flex items-center gap-2 hover:opacity-80 transition"
@@ -35,7 +37,6 @@ export default function Navbar() {
           Jake Bailey
         </span>
       </Link>
-
       {/* Nav links */}
       <div className="flex gap-6 text-sm">
         <Link className={linkClass('/')} to="/">

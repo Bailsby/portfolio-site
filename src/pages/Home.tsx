@@ -43,13 +43,7 @@ export default function Home() {
 
         <TechStack
           title="Personal Tech Stack"
-          tech={[
-            'Next.js',
-            'Fastify',
-            'PostgreSQL',
-            'Prisma',
-            'Vercel',
-          ]}
+          tech={['Next.js', 'Fastify', 'PostgreSQL', 'Prisma', 'Vercel']}
         />
       </div>
 

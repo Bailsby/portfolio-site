@@ -39,9 +39,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             Problem
           </h4>
 
-          <p className="text-gray-400 leading-relaxed">
-            {project.problem}
-          </p>
+          <p className="text-gray-400 leading-relaxed">{project.problem}</p>
         </div>
 
         {/* Architecture */}
@@ -104,7 +102,6 @@ export default function ProjectCard({ project }: { project: Project }) {
             size={16}
             className="group-hover:scale-110 transition-transform duration-300"
           />
-
           GitHub
         </a>
 
