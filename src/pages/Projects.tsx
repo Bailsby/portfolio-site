@@ -1,30 +1,39 @@
 import ProjectCard from '../components/ProjectCard'
 import { projects } from '../data/projects'
 import Reveal from '../components/Reveal'
+import SectionDivider from '../components/SectionDivider'
 
 export default function Projects() {
   return (
-    <div className="space-y-12">
+    <div>
       {/* Header */}
-      <Reveal>
-        <div className="space-y-4 text-center">
-          <h1 className="text-5xl font-bold tracking-tight">Projects</h1>
+      <section className="py-12 md:py-20">
+        <Reveal>
+          <div className="space-y-4 text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+              Projects
+            </h1>
 
-          <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            A collection of systems and applications I've built to solve
-            real-world problems using modern full-stack technologies.
-          </p>
-        </div>
-      </Reveal>
+            <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              A collection of systems and applications I've built to solve
+              real-world problems using modern full-stack technologies.
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
+      <SectionDivider />
 
       {/* Project grid */}
-      <Reveal>
-        <div className="grid md:grid-cols-1gap-6">
+      <section className="py-16 md:py-24">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+            <Reveal key={project.title}>
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
         </div>
-      </Reveal>
+      </section>
     </div>
   )
 }

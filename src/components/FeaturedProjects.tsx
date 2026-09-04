@@ -8,7 +8,7 @@ export default function FeaturedProjects() {
         Featured Projects
       </h2>
 
-      <div className="grid md:grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {projects.map((p) => (
           <ProjectCard key={p.title} project={p} />
         ))}

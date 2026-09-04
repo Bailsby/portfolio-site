@@ -4,15 +4,14 @@ export default function Navbar() {
   const location = useLocation()
 
   const linkClass = (path: string) =>
-    `transition-colors ${
+    `transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
       location.pathname === path
-        ? 'text-white'
+        ? 'text-accent'
         : 'text-gray-400 hover:text-white'
     }`
 
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between p-6 border-b border-gray-900 bg-[#050505]/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
-      {' '}
+    <nav className="sticky top-0 z-50 flex items-center justify-between p-4 sm:p-6 border-b border-line bg-[#050505]/90 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
       {/* Logo / Brand */}
       <Link
         to="/"
@@ -33,12 +32,10 @@ export default function Navbar() {
           />
         </svg>
 
-        <span className="font-semibold text-lg tracking-tight">
-          Jake Bailey
-        </span>
+        <span className="sr-only">Jake Bailey — home</span>
       </Link>
       {/* Nav links */}
-      <div className="flex gap-6 text-sm">
+      <div className="flex gap-4 sm:gap-6 text-sm">
         <Link className={linkClass('/')} to="/">
           Home
         </Link>

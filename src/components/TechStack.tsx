@@ -7,10 +7,12 @@ type TechStackProps = {
 
 export default function TechStack({ title, tech }: TechStackProps) {
   return (
-    <section className="text-center space-y-6">
-      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+    <div className="space-y-4">
+      <h3 className="text-xs uppercase tracking-[0.2em] text-gray-500">
+        {title}
+      </h3>
 
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex flex-wrap gap-2.5">
         {tech.map((name) => {
           const Icon = techIcons[name]
 
@@ -18,23 +20,23 @@ export default function TechStack({ title, tech }: TechStackProps) {
             <span
               key={name}
               className="
-                flex items-center gap-2 px-4 py-1.5 
-                border border-gray-800 rounded-full 
-                text-sm text-gray-300 
-                bg-black/50 backdrop-blur-sm
-                hover:border-gray-500 hover:text-white 
-                hover:bg-black/70
-                hover:shadow-[0_0_15px_rgba(255,255,255,0.05)] 
-                hover:scale-[1.05] 
+                flex items-center gap-2 px-3.5 py-1.5
+                border border-line rounded-full
+                text-sm text-gray-300
+                bg-white/[0.02] backdrop-blur-sm
+                hover:border-accent/40 hover:text-white
+                hover:bg-white/[0.04]
+                hover:shadow-accent
+                hover:scale-[1.05]
                 transition-all duration-300
               "
             >
-              {Icon && <Icon size={16} />}
+              {Icon && <Icon size={15} />}
               {name}
             </span>
           )
         })}
       </div>
-    </section>
+    </div>
   )
 }

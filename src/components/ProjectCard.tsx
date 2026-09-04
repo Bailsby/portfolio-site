@@ -14,14 +14,14 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div
       className="
-        border border-gray-900
-        bg-black/50 backdrop-blur-sm
+        border border-line
+        bg-white/[0.02] backdrop-blur-sm
         p-6 rounded-lg
         flex flex-col space-y-4
 
-        hover:bg-black/70
-        hover:border-gray-500
-        hover:shadow-[0_0_30px_rgba(255,255,255,0.04)]
+        hover:bg-white/[0.04]
+        hover:border-accent/40
+        hover:shadow-accent
         hover:-translate-y-1
 
         transition-all duration-300
@@ -64,14 +64,14 @@ export default function ProjectCard({ project }: { project: Project }) {
                 className="
                   flex items-center gap-2
                   text-xs px-2 py-1
-                  border border-gray-800
+                  border border-line
                   rounded-full
                   text-gray-400
-                  bg-black/50 
+                  bg-white/[0.02]
                   backdrop-blur-sm
-                  hover:border-gray-600
+                  hover:border-accent/40
                   hover:text-white
-                  hover:bg-black/70
+                  hover:bg-white/[0.04]
                   hover:scale-[1.03]
                   transition-all duration-300
                 "
@@ -85,7 +85,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Footer */}
-      <div className="mt-auto flex justify-between items-center pt-4 text-sm border-t border-gray-900">
+      <div className="mt-auto flex justify-between items-center pt-4 text-sm border-t border-line">
         <a
           href={project.github}
           target="_blank"
@@ -93,7 +93,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           className="
             flex items-center gap-2
             text-gray-300
-            hover:text-white
+            hover:text-accent
             transition
             group
           "
@@ -112,7 +112,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             rel="noreferrer"
             className="
               text-gray-300
-              hover:text-white
+              hover:text-accent
               transition
             "
           >

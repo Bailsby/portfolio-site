@@ -59,13 +59,13 @@ export default function MatrixBackground() {
           headOpacity[i] = 1
         }
 
-        // brightness system
+        // brightness system — tuned to the emerald accent (--color-accent)
         if (headOpacity[i] > 0.8) {
-          ctx.fillStyle = 'rgba(180, 255, 200, 1)' // bright head
+          ctx.fillStyle = 'rgba(167, 243, 208, 1)' // bright head
         } else if (headOpacity[i] > 0.4) {
-          ctx.fillStyle = 'rgba(0, 255, 120, 0.4)' // mid trail
+          ctx.fillStyle = 'rgba(52, 211, 153, 0.4)' // mid trail
         } else {
-          ctx.fillStyle = 'rgba(0, 255, 120, 0.15)' // fade trail
+          ctx.fillStyle = 'rgba(52, 211, 153, 0.15)' // fade trail
         }
 
         ctx.fillText(text, x, y)
