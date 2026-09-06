@@ -33,8 +33,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           <img
             src={project.image}
             alt={project.imageAlt ?? ''}
-            width={900}
-            height={459}
+            width={1400}
+            height={714}
             loading="lazy"
             decoding="async"
             className="w-full h-auto"

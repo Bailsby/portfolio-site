@@ -26,7 +26,15 @@ export default function Projects() {
 
       {/* Project grid */}
       <section className="py-16 md:py-24">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* A single project spans the full width — at half width the screenshot
+          is too small to read. Reverts to two columns once a second lands. */}
+        <div
+          className={
+            projects.length === 1
+              ? 'grid grid-cols-1 gap-6'
+              : 'grid grid-cols-1 gap-6 lg:grid-cols-2'
+          }
+        >
           {projects.map((project) => (
             <Reveal key={project.title}>
               <ProjectCard project={project} />

@@ -8,7 +8,15 @@ export default function FeaturedProjects() {
         Featured Projects
       </h2>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      {/* A single project spans the full width — at half width the screenshot
+          is too small to read. Reverts to two columns once a second lands. */}
+      <div
+        className={
+          projects.length === 1
+            ? 'grid grid-cols-1 gap-6'
+            : 'grid grid-cols-1 gap-6 lg:grid-cols-2'
+        }
+      >
         {projects.map((p) => (
           <ProjectCard key={p.title} project={p} />
         ))}
