@@ -10,7 +10,7 @@ export default function Projects() {
       <section className="py-12 md:py-20">
         <Reveal>
           <div className="space-y-4 text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight">
               Projects
             </h1>
 

@@ -45,7 +45,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       {/* Content */}
       <div className="space-y-4 p-6">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-xl font-semibold tracking-tight">
+          <h3 className="font-display text-xl font-semibold tracking-tight">
             {project.title}
           </h3>
 

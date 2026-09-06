@@ -63,7 +63,7 @@ export default function Home() {
       {/* Tech stack */}
       <section className="py-20 md:py-28">
         <Reveal>
-          <h2 className="text-2xl font-semibold tracking-tight text-center">
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-center">
             Tech Stack
           </h2>
         </Reveal>

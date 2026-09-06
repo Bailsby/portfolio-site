@@ -1,6 +1,11 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Sora carries the headings; Inter stays on body copy and UI, where its
+     narrower forms keep paragraphs dense and small labels legible. */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+
   /* Accent — a muted emerald that ties the matrix background to the interface.
      Change this one value to re-theme the whole site. */
   --color-accent: #34d399;
@@ -16,6 +21,5 @@
 
 body {
   @apply bg-black text-white font-sans;
-  font-family: 'Inter', system-ui, sans-serif;
   letter-spacing: -0.02em;
 }

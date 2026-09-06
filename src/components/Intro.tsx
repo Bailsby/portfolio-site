@@ -14,7 +14,9 @@ export default function Intro() {
         ease: 'easeOut',
       }}
     >
-      <h2 className="text-2xl font-semibold tracking-tight">About Me</h2>
+      <h2 className="font-display text-2xl font-semibold tracking-tight">
+        About Me
+      </h2>
 
       <p className="text-gray-400 leading-relaxed">
         I’m a software engineer, with over 5 years of experience, building

@@ -4,7 +4,7 @@ import { projects } from '../data/projects'
 export default function FeaturedProjects() {
   return (
     <section className="space-y-10">
-      <h2 className="text-2xl font-semibold text-center tracking-tight">
+      <h2 className="font-display text-2xl font-semibold text-center tracking-tight">
         Featured Projects
       </h2>
 

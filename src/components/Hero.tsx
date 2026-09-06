@@ -32,7 +32,7 @@ export default function Hero() {
     >
       <motion.h1
         variants={item}
-        className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight"
+        className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight"
       >
         Jake Bailey
       </motion.h1>

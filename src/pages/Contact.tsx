@@ -25,7 +25,7 @@ export default function Contact() {
       <section className="py-12 md:py-20">
         <Reveal>
           <div className="text-center space-y-4">
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight">
               Contact
             </h1>
 
