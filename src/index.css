@@ -23,3 +23,19 @@ body {
   @apply bg-black text-white font-sans;
   letter-spacing: -0.02em;
 }
+
+/* The canvas blur softens the glyph edges but costs a full-screen filter pass
+   on every repaint. It stays on pointer-driven displays and comes off wherever
+   the background is drawn as a still frame.
+
+   Keep this query identical to STILL_QUERY in MatrixBackground.tsx — if the two
+   disagree, a device gets a static frame that is still paying for the filter. */
+.matrix-canvas {
+  filter: blur(0.6px);
+}
+
+@media (prefers-reduced-motion: reduce), (max-width: 768px), (pointer: coarse) {
+  .matrix-canvas {
+    filter: none;
+  }
+}

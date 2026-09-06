@@ -9,6 +9,16 @@ const SETTLE_STEPS = 45
 /** Ignore height changes smaller than this — see the resize handler. */
 const ADDRESS_BAR_SLOP = 120
 
+/**
+ * Devices that get a single still frame instead of the animation.
+ *
+ * `pointer: coarse` is the load-bearing clause: a phone in landscape is wider
+ * than 768px, so width alone would leave it animating on exactly the hardware
+ * that cannot afford it. Keep in sync with .matrix-canvas in index.css.
+ */
+const STILL_QUERY =
+  '(prefers-reduced-motion: reduce), (max-width: 768px), (pointer: coarse)'
+
 const LETTERS =
   'アァイィウエオカキクケコサシスセソ' +
   'タチツテトナニヌネノハヒフヘホ' +
@@ -28,11 +38,10 @@ export default function MatrixBackground() {
 
     // A full-screen repaint every frame is affordable on a desktop GPU and not
     // on a phone, which also throttles once it warms up — so the animation gets
-    // worse the longer it runs. Small screens and anyone who has asked for
-    // reduced motion get one settled frame with the same glyphs and colours.
-    const still =
-      window.matchMedia('(max-width: 768px)').matches ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    // worse the longer it runs. Touch devices, narrow viewports and anyone who
+    // has asked for reduced motion get one settled frame with the same glyphs
+    // and colours.
+    const stillQuery = window.matchMedia(STILL_QUERY)
 
     let drops: number[] = []
     let heads: number[] = []
@@ -99,9 +108,20 @@ export default function MatrixBackground() {
     let frame = 0
     let resizeTimer: number | undefined
 
-    if (still) {
-      settle()
-    } else {
+    const stop = () => {
+      cancelAnimationFrame(frame)
+      frame = 0
+    }
+
+    /** (Re)start in whichever mode the media query currently reports. */
+    const start = () => {
+      stop()
+
+      if (stillQuery.matches) {
+        settle()
+        return
+      }
+
       // requestAnimationFrame rather than setInterval: it stops on its own when
       // the tab is hidden, where setInterval would keep repainting forever. The
       // accumulator holds the original ~70ms cadence, so the rain falls at the
@@ -120,6 +140,18 @@ export default function MatrixBackground() {
       frame = requestAnimationFrame(loop)
     }
 
+    start()
+
+    // Rotating a phone, or switching device emulation in devtools, changes the
+    // answer without remounting, so the mode has to be re-read rather than
+    // captured once.
+    const onQueryChange = () => {
+      resize()
+      start()
+    }
+
+    stillQuery.addEventListener('change', onQueryChange)
+
     // Scrolling a phone hides and reveals the address bar, which fires resize
     // and would otherwise reallocate the canvas mid-scroll. Only a width change
     // — or a height change too large to be browser chrome — is a real layout
@@ -133,25 +165,25 @@ export default function MatrixBackground() {
           return
 
         resize()
-        if (still) settle()
+        start()
       }, 200)
     }
 
     window.addEventListener('resize', onResize)
 
     return () => {
-      cancelAnimationFrame(frame)
+      stop()
       window.clearTimeout(resizeTimer)
       window.removeEventListener('resize', onResize)
+      stillQuery.removeEventListener('change', onQueryChange)
     }
   }, [])
 
   return (
     <canvas
       ref={canvasRef}
-      // The blur softens the glyph edges but costs a full-screen filter pass on
-      // every repaint, so it stays on desktop and comes off below md.
-      className="pointer-events-none fixed inset-0 z-0 opacity-30 blur-[0.6px] max-md:blur-none"
+      // .matrix-canvas carries the blur and the query that removes it; see index.css.
+      className="matrix-canvas pointer-events-none fixed inset-0 z-0 opacity-30"
     />
   )
 }
