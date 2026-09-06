@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const FONT_SIZE = 18
 const FRAME_MS = 70
@@ -10,14 +10,20 @@ const SETTLE_STEPS = 45
 const ADDRESS_BAR_SLOP = 120
 
 /**
- * Devices that get a single still frame instead of the animation.
+ * Devices that get no background at all.
  *
- * `pointer: coarse` is the load-bearing clause: a phone in landscape is wider
- * than 768px, so width alone would leave it animating on exactly the hardware
- * that cannot afford it. Keep in sync with .matrix-canvas in index.css.
+ * Even drawn once and left alone, the canvas is a fixed, semi-transparent,
+ * full-viewport layer the compositor blends over the page on every scrolled
+ * frame, and painting the still frame costs 45 full-screen fills during load —
+ * exactly when a phone is busiest. `pointer: coarse` catches touch devices in
+ * any orientation, where width alone would miss a phone held sideways.
+ *
+ * Keep in sync with .matrix-canvas in index.css.
  */
-const STILL_QUERY =
-  '(prefers-reduced-motion: reduce), (max-width: 768px), (pointer: coarse)'
+const DISABLE_QUERY = '(max-width: 768px), (pointer: coarse)'
+
+/** Pointer-driven displays that have asked for no motion: still frame, no loop. */
+const STILL_QUERY = '(prefers-reduced-motion: reduce)'
 
 const LETTERS =
   'アァイィウエオカキクケコサシスセソ' +
@@ -27,6 +33,26 @@ const LETTERS =
   '@#$%&*+=-'
 
 export default function MatrixBackground() {
+  // Mounting nothing is the only way to be sure nothing is composited: hiding
+  // the canvas with CSS would still create the layer.
+  const [enabled, setEnabled] = useState(false)
+
+  useEffect(() => {
+    const disabled = window.matchMedia(DISABLE_QUERY)
+    const update = () => setEnabled(!disabled.matches)
+
+    update()
+    disabled.addEventListener('change', update)
+
+    return () => disabled.removeEventListener('change', update)
+  }, [])
+
+  if (!enabled) return null
+
+  return <MatrixCanvas />
+}
+
+function MatrixCanvas() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   useEffect(() => {
@@ -36,11 +62,6 @@ export default function MatrixBackground() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    // A full-screen repaint every frame is affordable on a desktop GPU and not
-    // on a phone, which also throttles once it warms up — so the animation gets
-    // worse the longer it runs. Touch devices, narrow viewports and anyone who
-    // has asked for reduced motion get one settled frame with the same glyphs
-    // and colours.
     const stillQuery = window.matchMedia(STILL_QUERY)
 
     let drops: number[] = []
@@ -113,7 +134,6 @@ export default function MatrixBackground() {
       frame = 0
     }
 
-    /** (Re)start in whichever mode the media query currently reports. */
     const start = () => {
       stop()
 
@@ -142,9 +162,6 @@ export default function MatrixBackground() {
 
     start()
 
-    // Rotating a phone, or switching device emulation in devtools, changes the
-    // answer without remounting, so the mode has to be re-read rather than
-    // captured once.
     const onQueryChange = () => {
       resize()
       start()
@@ -152,10 +169,8 @@ export default function MatrixBackground() {
 
     stillQuery.addEventListener('change', onQueryChange)
 
-    // Scrolling a phone hides and reveals the address bar, which fires resize
-    // and would otherwise reallocate the canvas mid-scroll. Only a width change
-    // — or a height change too large to be browser chrome — is a real layout
-    // change worth rebuilding for.
+    // Only a width change — or a height change too large to be browser chrome —
+    // is a real layout change worth rebuilding for.
     const onResize = () => {
       window.clearTimeout(resizeTimer)
 
@@ -182,7 +197,7 @@ export default function MatrixBackground() {
   return (
     <canvas
       ref={canvasRef}
-      // .matrix-canvas carries the blur and the query that removes it; see index.css.
+      // .matrix-canvas carries the blur and the query that removes it; index.css.
       className="matrix-canvas pointer-events-none fixed inset-0 z-0 opacity-30"
     />
   )

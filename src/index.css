@@ -25,17 +25,26 @@ body {
 }
 
 /* The canvas blur softens the glyph edges but costs a full-screen filter pass
-   on every repaint. It stays on pointer-driven displays and comes off wherever
-   the background is drawn as a still frame.
-
-   Keep this query identical to STILL_QUERY in MatrixBackground.tsx — if the two
-   disagree, a device gets a static frame that is still paying for the filter. */
+   on every repaint, so it comes off when the canvas is a still frame. Touch
+   devices render no canvas at all — see DISABLE_QUERY in MatrixBackground.tsx. */
 .matrix-canvas {
   filter: blur(0.6px);
 }
 
-@media (prefers-reduced-motion: reduce), (max-width: 768px), (pointer: coarse) {
+@media (prefers-reduced-motion: reduce) {
   .matrix-canvas {
     filter: none;
+  }
+}
+
+/* Two large blurred circles behind the page. A 120px blur radius over a 600px
+   element is cheap enough to rasterise once on a desktop GPU and not on a
+   phone's, so they are dropped alongside the matrix canvas rather than left as
+   the only expensive thing on the page.
+
+   Keep this query identical to DISABLE_QUERY in MatrixBackground.tsx. */
+@media (max-width: 768px), (pointer: coarse) {
+  .ambient-glow {
+    display: none;
   }
 }

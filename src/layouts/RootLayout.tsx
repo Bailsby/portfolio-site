@@ -10,7 +10,7 @@ export default function RootLayout() {
       <MatrixBackground />
 
       {/* glow layer */}
-      <div className="absolute inset-0 -z-20">
+      <div className="ambient-glow absolute inset-0 -z-20">
         <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/15 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-teal-500/10 blur-[120px] rounded-full" />
       </div>
