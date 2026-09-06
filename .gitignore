@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Agent instructions and internal notes — not part of the project
+CLAUDE.md
+AGENTS.md
+DEPLOYMENT.md
