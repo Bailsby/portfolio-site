@@ -39,6 +39,28 @@ export const projects: Project[] = [
     imageAlt:
       'The API Monitor dashboard, listing five monitored endpoints with uptime and average response time, above a log of recent incidents.',
   },
+  {
+    title: 'Booking Platform',
+    problem:
+      'A one-person salon takes bookings by phone with a dog on the table — calls go unanswered, slots get double-booked, and a 15-minute nail trim and a 90-minute groom never fit the same fixed-length calendar blocks.',
+    architecture:
+      'Opening hours are stored as weekly rules plus one-off exceptions, and free times are worked out on request in the salon’s own time zone, so a clock change never moves an appointment. A database constraint makes double booking impossible, even when two customers click the same slot at once, and customers reschedule or cancel from a signed link in their email — no accounts.',
+    techStack: [
+      'TypeScript',
+      'Next.js',
+      'Prisma',
+      'PostgreSQL',
+      'Tailwind',
+      'Vitest',
+    ],
+    github: 'https://github.com/Bailsby/booking-platform',
+    live: 'https://dog-groomers.jake-bailey.dev',
+    liveNote:
+      'No sign-up. Book, reschedule and cancel as much as you like — the salon is fictional, the confirmation email appears on screen instead of being sent, and the diary resets every night.',
+    image: '/booking-platform-picker.webp',
+    imageAlt:
+      'A dog grooming salon’s booking page: a fortnight of dates with fully booked days struck through, and the free morning appointment times for the selected Tuesday.',
+  },
   // {
   //   title: 'Travel Planner',
   //   problem:
