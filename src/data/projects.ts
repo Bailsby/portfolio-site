@@ -40,6 +40,28 @@ export const projects: Project[] = [
       'The API Monitor dashboard, listing five monitored endpoints with uptime and average response time, above a log of recent incidents.',
   },
   {
+    title: 'Hill Bagger',
+    problem:
+      'Hill lists overlap — Pen-y-ghent is one of the Yorkshire Three Peaks and one of the Dales 30 — so tracking Munros, Wainwrights and the rest in spreadsheets means ticking the same summit in several places, and old climbs are often remembered only by the year.',
+    architecture:
+      'Six lists built from the Database of British and Irish Hills, with each climb recorded once against the hill so it counts on every list it belongs to. Dates are as precise as they’re remembered — a day, a year or unknown — and every summit sits on Ordnance Survey mapping. Anyone can browse; GitHub sign-in is limited to one account, and notes stay private.',
+    techStack: [
+      'TypeScript',
+      'Next.js',
+      'Prisma',
+      'PostgreSQL',
+      'Leaflet',
+      'Vitest',
+    ],
+    github: 'https://github.com/Bailsby/hill-bagger',
+    live: 'https://hills.jake-bailey.dev',
+    liveNote:
+      'My own record, kept up to date after each walk. Browse the lists and the map; only my GitHub account can record climbs.',
+    image: '/hill-bagger-map.webp',
+    imageAlt:
+      'An Ordnance Survey map of the Lake District with every Wainwright marked, climbed fells filled in green, and Scafell Pike selected, showing it was climbed on 7 October 2018.',
+  },
+  {
     title: 'Booking Platform',
     problem:
       'A one-person salon takes bookings by phone with a dog on the table — calls go unanswered, slots get double-booked, and a 15-minute nail trim and a 90-minute groom never fit the same fixed-length calendar blocks.',

@@ -13,6 +13,7 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiBootstrap,
+  SiLeaflet,
   SiFastify,
   SiVercel,
   SiPrisma,
@@ -40,6 +41,7 @@ export const techIcons: Record<string, IconType> = {
   'Next.js': SiNextdotjs,
   Tailwind: SiTailwindcss,
   Bootstrap: SiBootstrap,
+  Leaflet: SiLeaflet,
 
   // Backend
   'Node.js': SiNodedotjs,
