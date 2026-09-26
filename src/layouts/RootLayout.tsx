@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import MatrixBackground from '../components/MatrixBackground'
@@ -22,6 +22,11 @@ export default function RootLayout() {
       </main>
 
       <Footer />
+
+      {/* New pages open at the top, Back returns to where you were, and a
+          fragment like /projects#hill-bagger scrolls to that card. Without it,
+          moving between pages kept the previous page's scroll position. */}
+      <ScrollRestoration />
     </div>
   )
 }
