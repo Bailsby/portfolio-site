@@ -1,5 +1,10 @@
 export type Project = {
   title: string
+  /** One sentence for the compact home-page card, written for a business
+      owner rather than a developer. */
+  summary: string
+  /** Shown on the home page. The first three featured, in this file's order. */
+  featured?: boolean
   problem: string
   architecture: string
   techStack: string[]
@@ -19,6 +24,9 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: 'API Monitoring SaaS',
+    summary:
+      'Watches your website and APIs around the clock, logs every outage, and gives your customers a live status page.',
+    featured: true,
     problem:
       'When a small business site or booking form breaks at 2am, nobody finds out until a customer complains — usually after they have given up and gone elsewhere.',
     architecture:
@@ -41,6 +49,9 @@ export const projects: Project[] = [
   },
   {
     title: 'Hill Bagger',
+    summary:
+      'A personal record of 636 British summits across six hill lists, on Ordnance Survey mapping.',
+    featured: true,
     problem:
       'Hill lists overlap — Pen-y-ghent is one of the Yorkshire Three Peaks and one of the Dales 30 — so tracking Munros, Wainwrights and the rest in spreadsheets means ticking the same summit in several places, and old climbs are often remembered only by the year.',
     architecture:
@@ -63,6 +74,9 @@ export const projects: Project[] = [
   },
   {
     title: 'Booking Platform',
+    summary:
+      'Online booking for a dog groomer: real availability, no double bookings, and reschedule or cancel from an email link.',
+    featured: true,
     problem:
       'A one-person salon takes bookings by phone with a dog on the table — calls go unanswered, slots get double-booked, and a 15-minute nail trim and a 90-minute groom never fit the same fixed-length calendar blocks.',
     architecture:
@@ -93,3 +107,10 @@ export const projects: Project[] = [
   //   github: 'https://github.com/Bailsby/travel-planner',
   // },
 ]
+
+/** A URL fragment for a project, e.g. "Hill Bagger" → "hill-bagger". */
+export const projectSlug = (project: Pick<Project, 'title'>): string =>
+  project.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')

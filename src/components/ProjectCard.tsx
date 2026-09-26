@@ -1,13 +1,18 @@
 import { FaGithub } from 'react-icons/fa'
 import { FiExternalLink } from 'react-icons/fi'
 
+import LiveBadge from './LiveBadge'
 import { techIcons } from '../data/techIcons'
-import type { Project } from '../data/projects'
+import { projectSlug, type Project } from '../data/projects'
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <div
+      // The home page's compact cards link here by fragment; the margin keeps
+      // the sticky navbar from covering the card's top once scrolled to.
+      id={projectSlug(project)}
       className="
+        scroll-mt-28
         border border-line
         bg-white/[0.02] backdrop-blur-sm
         rounded-lg overflow-hidden
@@ -49,17 +54,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             {project.title}
           </h3>
 
-          {project.live && (
-            <span className="flex shrink-0 items-center gap-2 rounded-full border border-accent/30 bg-accent/[0.06] px-2.5 py-1 text-[11px] uppercase tracking-wider text-accent">
-              {/* The ping is decorative; motion-safe so it does not animate for
-                  anyone who has asked the OS for reduced motion. */}
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 motion-safe:animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-              </span>
-              Live demo
-            </span>
-          )}
+          {project.live && <LiveBadge />}
         </div>
 
         {/* Problem */}
