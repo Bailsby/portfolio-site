@@ -5,7 +5,12 @@ import MatrixBackground from '../components/MatrixBackground'
 
 export default function RootLayout() {
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden flex flex-col">
+    // overflow-clip, not overflow-hidden: the glow below spills 200px past the
+    // bottom, and a hidden-overflow box is still scrollable by the browser.
+    // Scrolling to a #fragment scrolled it by those 200px, hiding the top of
+    // every page until a reload. Clip hides the spill-over but can't scroll,
+    // and isn't a scroll container, so the navbar's `sticky` also works.
+    <div className="min-h-screen bg-black text-white relative overflow-clip flex flex-col">
       {/* Matrix background */}
       <MatrixBackground />
 
