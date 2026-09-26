@@ -11,7 +11,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         border border-line
         bg-white/[0.02] backdrop-blur-sm
         rounded-lg overflow-hidden
-        flex flex-col
+        flex h-full flex-col
 
         hover:bg-white/[0.04]
         hover:border-accent/40

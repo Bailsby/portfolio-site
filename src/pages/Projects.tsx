@@ -36,7 +36,7 @@ export default function Projects() {
           }
         >
           {projects.map((project) => (
-            <Reveal key={project.title}>
+            <Reveal key={project.title} className="h-full">
               <ProjectCard project={project} />
             </Reveal>
           ))}
